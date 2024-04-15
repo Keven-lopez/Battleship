@@ -1,0 +1,53 @@
+﻿valid = false;
+            for (int i = 0; i < 3; i++)
+            {
+                row += 1;
+            }
+            if (row > 10)
+            {
+                Console.WriteLine("Pick again dumbass");
+            }
+            else
+            {
+                eee();
+                row -= 3;
+                board[row, col] = vert_start;
+                board[row + 1, col] = vert_mid;
+                board[row + 2, col] = vert_end;
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    temp_board[i, j] = board[i, j];
+                }
+            }
+            if (bruh == true)
+            {
+                mostrar_tabla();
+                Console.WriteLine("Confirmar? Y/N");
+                confirm = Console.ReadLine();
+                confirm.ToLower();
+                switch (confirm)
+                {
+                    case "y":
+                        valid = true;
+                        break;
+                    case "n":
+                        board[row, col] = "  0";
+                        board[row + 1, col] = "  0";
+                        board[row + 2, col] = "  0";
+                        Console.Clear();
+                        break;
+                }
+            }
+            else if (bruh == false)
+            {
+                Console.WriteLine("Posicion Invalida");
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        board[i, j] = temp_board[i, j];
+                    }
+                }
